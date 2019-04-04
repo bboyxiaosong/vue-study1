@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<style>
+li{margin-bottom:2px;}
+.active{background:#000 !important;}
+</style>
+
+</head>
+
+<body>
+<div id='app'>
+    <ol >
+		<li v-for='(item,index) in arr' ref='myDiv' v-bind:style='{backgroundColor:item.color}' v-bind:class="{active:isActive }" @mouseover='fnMover(isActive)' @mouseout='fnMout'></li>
+	</ol>
+</div>
+<script>
+var vm=new Vue({
+	el:'#app',
+	data:{
+		curIndex:0,
+		arr:[{color:'pink'},{color:'orange'},{color:'red'},{color:'green'},{color:'grey'}],
+		isActive:false,
+	},
+	methods:{
+		fnMover(index){	
+			this.isActive=true;
+		},
+		fnMout(){
+			this.isActive=false;
+		},
+	},
+
+	
+})
+</script>
+</body>
+</html>
